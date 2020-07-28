@@ -1,11 +1,14 @@
 package com.example.practicas2;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,10 +30,10 @@ class customAdapter extends ArrayAdapter<String> {
         View photosView = photoInflater.inflate(R.layout.custom_grid_photos_layout,parent,false);
 
         String profiles = getItem(position);
-        TextView profName = (TextView) photosView.findViewById(R.id.tvProfileName);
+        final TextView profName = (TextView) photosView.findViewById(R.id.tvProfileName);
         ImageView profPic = (ImageView) photosView.findViewById(R.id.ivProfilePhoto);
-        TextView hobbyDesc = (TextView) photosView.findViewById(R.id.tvHobbyDesc);
-        ImageView hobbyPic = (ImageView) photosView.findViewById(R.id.ivHobbyPhoto);
+        final TextView hobbyDesc = (TextView) photosView.findViewById(R.id.tvHobbyDesc);
+        final ImageView hobbyPic = (ImageView) photosView.findViewById(R.id.ivHobbyPhoto);
 
         profName.setText(profiles);
         profPic.setImageResource(R.drawable.ic_8_ball_pool);
@@ -49,6 +52,28 @@ class customAdapter extends ArrayAdapter<String> {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"\uD83D\uDE20",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        ImageButton share = (ImageButton) photosView.findViewById(R.id.btnShare);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nameShare = profName.getText().toString();
+                /*
+                Intent intentFb = new Intent();
+                intentFb.setAction(Intent.ACTION_VIEW);
+                intentFb.setData(Uri.parse("https://"+nameShare));
+                v.getContext().startActivity(intentFb);
+                */
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,hobbyDesc.getText().toString());
+                shareIntent.putExtra(Intent.EXTRA_STREAM,hobbyPic.getDrawingCache());
+                shareIntent.setType("image/*");
+                Intent addActivity = new Intent(v.getContext(), com.example.practicas2.addActivity.class);
+                v.getContext().startActivity(addActivity);
+                //v.getContext().startActivity(shareIntent);
             }
         });
 

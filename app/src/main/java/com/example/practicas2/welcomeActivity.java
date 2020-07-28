@@ -29,6 +29,7 @@ public class welcomeActivity extends AppCompatActivity {
         final List<String> posters = new ArrayList<String>();
         posters.add("Juan Pérez");
         posters.add("María Días");
+        posters.add("Pablo Mármol");
 
         String[] hobbies = {"Juan mostrando una de sus facetas, tocar la guitarra","María adora cantar en público, por eso le gustan mucho los karaokes"};
         // ListAdapter postersAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,posters);
@@ -38,5 +39,8 @@ public class welcomeActivity extends AppCompatActivity {
         //ListAdapter postersAdapter = new MyAdapter(this,R.layout.custom_grid_photos_layout,posters);
         postersListView.setAdapter(postersAdapter);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_8_ball_pool);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
