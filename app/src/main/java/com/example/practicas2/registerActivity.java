@@ -17,6 +17,10 @@ public class registerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_moe_round);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         // intent register -> login
         tv_Login = (TextView) findViewById(R.id.tvLogin);
         tv_Login.setOnClickListener(new View.OnClickListener() {

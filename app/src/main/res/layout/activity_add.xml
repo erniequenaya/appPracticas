@@ -9,19 +9,21 @@
 
     <ImageButton
         android:id="@+id/ibAddProfile"
+        android:backgroundTint="#d8f3d2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="217dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <ImageButton
         android:id="@+id/ibAddHobby"
+        android:backgroundTint="#d8f3d2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="72dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibAddProfile"
@@ -31,10 +33,10 @@
         android:id="@+id/addName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="223dp"
+        android:layout_marginTop="156dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Ingrese nombre"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/ibAddProfile"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Ingrese Nombre" />
@@ -55,9 +57,10 @@
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="148dp"
         android:layout_marginTop="76dp"
         android:text="Añadir"
+        android:background="#d8f3d2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addDescription" />
 
@@ -65,37 +68,47 @@
         android:id="@+id/actionbarT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D6D7D7"
+        android:background="#581a84"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:theme="@style/Base.Theme.AppCompat.CompactMenu">
+        app:theme="@style/Base.Theme.AppCompat.CompactMenu"
+        tools:layout_editor_absoluteX="0dp">
+
         <LinearLayout
             android:id="@+id/toolbarmenucontainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="3"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp">
+
             <ImageButton
                 android:id="@+id/ibAdd"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@android:drawable/ic_menu_add"
-                android:layout_width="wrap_content" />
+                android:background="#a463ab"
+                android:src="@android:drawable/ic_menu_add" />
+
             <ImageButton
                 android:id="@+id/ibEdit"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@android:drawable/ic_menu_edit"
-                android:layout_width="wrap_content" />
+                android:background="#a463ab"
+                android:src="@android:drawable/ic_menu_edit" />
+
             <ImageButton
                 android:id="@+id/ibDelete"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@android:drawable/ic_menu_delete"
-                android:layout_width="wrap_content" />
+                android:background="#a463ab"
+                android:src="@android:drawable/ic_menu_delete" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 

@@ -2,7 +2,6 @@ package com.example.practicas2;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,9 +35,16 @@ class customAdapter extends ArrayAdapter<String> {
         final ImageView hobbyPic = (ImageView) photosView.findViewById(R.id.ivHobbyPhoto);
 
         profName.setText(profiles);
-        profPic.setImageResource(R.drawable.ic_8_ball_pool);
-        hobbyDesc.setText(profiles);
-        hobbyPic.setImageResource(R.drawable.logo2);
+        if (position==0){
+            profPic.setImageResource(R.drawable.juan);
+            hobbyDesc.setText("Juan mostrando una de sus facetas, tocar la guitarra");
+            hobbyPic.setImageResource(R.drawable.juan2);
+        }
+        if (position==1){
+            profPic.setImageResource(R.drawable.logo2);
+            hobbyDesc.setText("María adora cantar en público, por eso le gustan mucho los karaokes");
+            hobbyPic.setImageResource(R.drawable.maria);
+        }
 
         Button like = (Button) photosView.findViewById(R.id.btnLike);
         like.setOnClickListener(new View.OnClickListener() {
@@ -70,12 +76,12 @@ class customAdapter extends ArrayAdapter<String> {
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.putExtra(Intent.EXTRA_TEXT,hobbyDesc.getText().toString());
                 shareIntent.putExtra(Intent.EXTRA_STREAM,hobbyPic.getDrawingCache());
-                shareIntent.setType("image/*");
-                Intent addActivity = new Intent(v.getContext(), com.example.practicas2.addActivity.class);
-                v.getContext().startActivity(addActivity);
-                //v.getContext().startActivity(shareIntent);
+                shareIntent.setType("image/png");
+                //Intent addActivity = new Intent(v.getContext(), com.example.practicas2.addActivity.class);
+                v.getContext().startActivity(Intent.createChooser(shareIntent,"Share with..."));
             }
         });
+
 
 
         return photosView;
