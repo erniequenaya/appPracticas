@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".welcomeActivity">
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
         android:id="@+id/lvPhotos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="61dp"
+        android:layout_marginBottom="56dp"
+        android:layout_marginTop="56dp"
         ></ListView>
 
     <androidx.appcompat.widget.Toolbar
@@ -19,7 +27,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:background="#581a84"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lvPhotos"
         app:theme="@style/Base.Theme.AppCompat.CompactMenu">
         <LinearLayout
             android:id="@+id/toolbarmenucontainer"
